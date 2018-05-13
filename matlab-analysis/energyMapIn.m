@@ -21,7 +21,7 @@ Total_dev_error = DATA{7}(1:end-1);
 
 createfigure(res_num,res_contribution)
 [abs_contribution,abs_res_num] = sort(abs(res_contribution),'descend');
-for i = 1:10
+for i = 1:6
     if res_contribution(abs_res_num(i)) > 0
         text(abs_res_num(i),res_contribution(abs_res_num(i))+3,res_name(abs_res_num(i)),'ROtation',90,'Fontsize',18)
     else
@@ -29,21 +29,19 @@ for i = 1:10
     end
 end
 function createfigure(xvector1, yvector1)
-%CREATEFIGURE(XVECTOR1, YVECTOR1)
-%  XVECTOR1:  bar xvector
-%  YVECTOR1:  bar yvector
 
 % Create figure
 figure1 = figure;
-set (gcf,'Position',[0,0,800,800], 'color','w')
+set (gcf,'unit','centimeters','Position',[0,0,28,22], 'color','w')
 
 % Create axes
 axes1 = axes('Parent',figure1);
-hold(axes1,'on');
 
 % Create bar
-bar(xvector1,yvector1,'EdgeColor','k');
-box(axes1,'on');
-set(axes1,'FontSize',18);
+bar(xvector1,yvector1);
+box(axes1,'off');
+set(axes1,'FontSize',15);
 ylim(axes1,[-40 40])
+xlabel({'Residue number'});
+ylabel('Contribution Energy(kJ*mol-1)');
 end

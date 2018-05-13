@@ -4,28 +4,27 @@ FID = fopen('rmsd.xvg','rt');
 DATA = textscan(FID,'%f %f','Headerlines',13,'CommentStyle','@');
 fclose(FID);
 rmsd_data = cell2mat(DATA);
+% x1 Time
+% x2 RMSD
+Time = rmsd_data(:,1);
+RMSD = rmsd_data(:,2);
+
+% 移动平均
+type = 'linear';
+windowSize = 100;
+ma = movavg(RMSD,type,windowSize);
 
 % 创建 figure
-figure1 = figure;
+figure0 = figure;
 
 % 创建 axes
-axes1 = axes('Parent',figure1);
-hold(axes1,'on');
-xlim(axes1,[0,200]);
-ylim(axes1,[0 1]);
-plot1 = plot(rmsd_data(1:end,1)*10 ,rmsd_data(1:end,2),'Parent',axes1);
-nstep = 50;
-move_data = [];
-for i = 1:size(rmsd_data)
-    if i < nstep+1
-        move_data = [move_data sum(rmsd_data(1:i,2))/i];
-    else
-        move_data = [move_data sum(rmsd_data(i-nstep:i,2))/nstep];
-    end
-end
-move_data = move_data';
-plot(rmsd_data(1:10:end,1)*10 ,move_data(1:10:end,:))
-%movavg(rmsd_data(:,2),100,1000,1)
+axes0 = axes('Parent',figure0);
+plot(Time(1:10:end), RMSD(1:10:end), Time, ma)
+legend('RMSD')
+set(legend,'Orientation','horizontal');
+xlabel({'Time(ns)'});
+ylabel('RMSD(nm)');
 set (gcf,'unit','centimeters','Position',[0,0,14,11], 'color','w')
-% x1 Time
-% x2 rmsd
+ylim(axes0,[0, 1]);
+xlim(axes0,[min(Time), max(Time)]);
+box(axes0,'off');

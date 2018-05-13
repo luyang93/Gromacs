@@ -50,86 +50,87 @@ figure0 = figure;
 
 % 创建 axes
 axes0 = axes('Parent',figure0);
-hold(axes0,'on');
-plot(Time*10, VdW, Time*10, Elec, Time*10, Pol,Time*10, Apol, Time*10,Binding)
+plot(Time, VdW, Time, Elec, Time, Pol,Time, Apol, Time,Binding)
 legend('VdW','Elec','Pol','Apol','Binding')
+xlabel({'Time(ns)'});
+ylabel('Energy(kJ*mol-1)');
 set(legend,'Orientation','horizontal');
 ylim(axes0,[-400 400]);
-xlim(axes0,[0,200]);
-box(axes0,'on');
+xlim(axes0,[0,100]);
+box(axes0,'off');
 set (gcf,'unit','centimeters','Position',[0,0,14,11], 'color','w')
 
 
-% 截取start_time ns后的数据，并去除NaN
-start_time = 1;
-end_time =2001;
-
-% start_time ns后计算平均值和标准差
-mean_VdW = mean(VdW(start_time:end_time));
-std_VdW = std(VdW(start_time:end_time));
-mean_Elec = mean(Elec(start_time:end_time));
-std_Elec = std(Elec(start_time:end_time));
-mean_Pol = mean(Pol(start_time:end_time));
-std_Pol = std(Pol(start_time:end_time));
-mean_Apol = mean(Apol(start_time:end_time));
-std_Apol = std(Apol(start_time:end_time));
-mean_Binding = mean(Binding(start_time:end_time));
-std_Binding = std(Binding(start_time:end_time));
-
-% 输出结果
-fprintf('%dns~%dns\n',round((start_time-1)/100),round((end_time-1)/100));
-fprintf('VdW = %.2f ± %.2f\n',mean_VdW,std_VdW);
-fprintf('Elec = %.2f ± %.2f\n',mean_Elec,std_Elec);
-fprintf('Pol = %.2f ± %.2f\n',mean_Pol,std_Pol);
-fprintf('Apol = %.2f ± %.2f\n',mean_Apol,std_Apol);
-fprintf('Binding = %.2f ± %.2f\n',mean_Binding,std_Binding);
-
-
-% 截取start_time ns后的数据，并去除NaN
-start_time = 1;
-end_time = 1001;
-
-% start_time ns后计算平均值和标准差
-mean_VdW = mean(VdW(start_time:end_time));
-std_VdW = std(VdW(start_time:end_time));
-mean_Elec = mean(Elec(start_time:end_time));
-std_Elec = std(Elec(start_time:end_time));
-mean_Pol = mean(Pol(start_time:end_time));
-std_Pol = std(Pol(start_time:end_time));
-mean_Apol = mean(Apol(start_time:end_time));
-std_Apol = std(Apol(start_time:end_time));
-mean_Binding = mean(Binding(start_time:end_time));
-std_Binding = std(Binding(start_time:end_time));
-
-% 输出结果
-fprintf('%dns~%dns\n',round((start_time-1)/100),round((end_time-1)/100));
-fprintf('VdW = %.2f ± %.2f\n',mean_VdW,std_VdW);
-fprintf('Elec = %.2f ± %.2f\n',mean_Elec,std_Elec);
-fprintf('Pol = %.2f ± %.2f\n',mean_Pol,std_Pol);
-fprintf('Apol = %.2f ± %.2f\n',mean_Apol,std_Apol);
-fprintf('Binding = %.2f ± %.2f\n',mean_Binding,std_Binding);
-
-
-% 截取start_time ns后的数据，并去除NaN
-start_time = 1000;
-end_time =2001;
-
-% start_time ns后计算平均值和标准差
-mean_VdW = mean(VdW(start_time:end_time));
-std_VdW = std(VdW(start_time:end_time));
-mean_Elec = mean(Elec(start_time:end_time));
-std_Elec = std(Elec(start_time:end_time));
-mean_Pol = mean(Pol(start_time:end_time));
-std_Pol = std(Pol(start_time:end_time));
-mean_Apol = mean(Apol(start_time:end_time));
-std_Apol = std(Apol(start_time:end_time));
-mean_Binding = mean(Binding(start_time:end_time));
-std_Binding = std(Binding(start_time:end_time));
-
-% 输出结果
-fprintf('%dns~%dns\n',round((start_time-1)/100),round((end_time-1)/100));
-fprintf('VdW = %.2f ± %.2f\n',mean_VdW,std_VdW);
-fprintf('Elec = %.2f ± %.2f\n',mean_Elec,std_Elec);
-fprintf('Pol = %.2f ± %.2f\n',mean_Pol,std_Pol);
-fprintf('Apol = %.2f ± %.2f\n',mean_Apol,std_Apol);
-fprintf('Binding = %.2f ± %.2f\n',mean_Binding,std_Binding);
+% % 截取start_time ns后的数据，并去除NaN
+% start_time = 1;
+% end_time =2001;
+% 
+% % start_time ns后计算平均值和标准差
+% mean_VdW = mean(VdW(start_time:end_time));
+% std_VdW = std(VdW(start_time:end_time));
+% mean_Elec = mean(Elec(start_time:end_time));
+% std_Elec = std(Elec(start_time:end_time));
+% mean_Pol = mean(Pol(start_time:end_time));
+% std_Pol = std(Pol(start_time:end_time));
+% mean_Apol = mean(Apol(start_time:end_time));
+% std_Apol = std(Apol(start_time:end_time));
+% mean_Binding = mean(Binding(start_time:end_time));
+% std_Binding = std(Binding(start_time:end_time));
+% 
+% % 输出结果
+% fprintf('%dns~%dns\n',round((start_time-1)/100),round((end_time-1)/100));
+% fprintf('VdW = %.2f ± %.2f\n',mean_VdW,std_VdW);
+% fprintf('Elec = %.2f ± %.2f\n',mean_Elec,std_Elec);
+% fprintf('Pol = %.2f ± %.2f\n',mean_Pol,std_Pol);
+% fprintf('Apol = %.2f ± %.2f\n',mean_Apol,std_Apol);
+% fprintf('Binding = %.2f ± %.2f\n',mean_Binding,std_Binding);
+% 
+% 
+% % 截取start_time ns后的数据，并去除NaN
+% start_time = 1;
+% end_time = 1001;
+% 
+% % start_time ns后计算平均值和标准差
+% mean_VdW = mean(VdW(start_time:end_time));
+% std_VdW = std(VdW(start_time:end_time));
+% mean_Elec = mean(Elec(start_time:end_time));
+% std_Elec = std(Elec(start_time:end_time));
+% mean_Pol = mean(Pol(start_time:end_time));
+% std_Pol = std(Pol(start_time:end_time));
+% mean_Apol = mean(Apol(start_time:end_time));
+% std_Apol = std(Apol(start_time:end_time));
+% mean_Binding = mean(Binding(start_time:end_time));
+% std_Binding = std(Binding(start_time:end_time));
+% 
+% % 输出结果
+% fprintf('%dns~%dns\n',round((start_time-1)/100),round((end_time-1)/100));
+% fprintf('VdW = %.2f ± %.2f\n',mean_VdW,std_VdW);
+% fprintf('Elec = %.2f ± %.2f\n',mean_Elec,std_Elec);
+% fprintf('Pol = %.2f ± %.2f\n',mean_Pol,std_Pol);
+% fprintf('Apol = %.2f ± %.2f\n',mean_Apol,std_Apol);
+% fprintf('Binding = %.2f ± %.2f\n',mean_Binding,std_Binding);
+% 
+% 
+% % 截取start_time ns后的数据，并去除NaN
+% start_time = 1000;
+% end_time =2001;
+% 
+% % start_time ns后计算平均值和标准差
+% mean_VdW = mean(VdW(start_time:end_time));
+% std_VdW = std(VdW(start_time:end_time));
+% mean_Elec = mean(Elec(start_time:end_time));
+% std_Elec = std(Elec(start_time:end_time));
+% mean_Pol = mean(Pol(start_time:end_time));
+% std_Pol = std(Pol(start_time:end_time));
+% mean_Apol = mean(Apol(start_time:end_time));
+% std_Apol = std(Apol(start_time:end_time));
+% mean_Binding = mean(Binding(start_time:end_time));
+% std_Binding = std(Binding(start_time:end_time));
+% 
+% % 输出结果
+% fprintf('%dns~%dns\n',round((start_time-1)/100),round((end_time-1)/100));
+% fprintf('VdW = %.2f ± %.2f\n',mean_VdW,std_VdW);
+% fprintf('Elec = %.2f ± %.2f\n',mean_Elec,std_Elec);
+% fprintf('Pol = %.2f ± %.2f\n',mean_Pol,std_Pol);
+% fprintf('Apol = %.2f ± %.2f\n',mean_Apol,std_Apol);
+% fprintf('Binding = %.2f ± %.2f\n',mean_Binding,std_Binding);
