@@ -1,7 +1,7 @@
 Gromacs
 ___
 
-`Gromacs` `aussian 09` `AmberTools 18` `acpype` `g_mmpbsa` `MATLAB` `Python`
+`Gromacs` `Gaussian 09` `AmberTools 18` `acpype` `g_mmpbsa` `MATLAB` `Python`
 
 ---------
 正常运行需要的各种文件
