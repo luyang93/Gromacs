@@ -18,10 +18,10 @@ Gromacs
     * pbsa.sh:自动采用MM/PBSA的方式分解能量，获得VdW、Elec、Pol、Apol、Binding能量。  
 
 * 使用方法
-    * ```sh ../resp.sh 2>&1 | tee resp.log```  
-    * ```sh ../md.sh 2>&1 | tee md.log```  
-    * ```sh ../analysis.sh 2>&1 | tee analysis.log```  
-    * ```sh ../pbsa.sh 2>&1 | tee pbsa.log```  
+    * ```bash ../resp.sh 2>&1 | tee resp.log```  
+    * ```bash ../md.sh 2>&1 | tee md.log```  
+    * ```bash ../analysis.sh 2>&1 | tee analysis.log```  
+    * ```bash ../pbsa.sh 2>&1 | tee pbsa.log```  
 
 ## 正常运行需要的各种文件
 complex.sh:组合lig.gro和protein.gro  
