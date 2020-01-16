@@ -21,7 +21,7 @@ Gromacs
     * ```bash ../resp.sh 2>&1 | tee resp.log```  
     resp.sh 这个脚本有改进版 orca.sh,
     使用方法：
-    * ```RESP.sh something.pdb 0 1```
+    * ```orca.sh something.pdb 0 1```
     其中 0 为 Net charge（净电荷），1 为 Spin multiplicity（自旋）。
     * ```bash ../md.sh 2>&1 | tee md.log```  
     * ```bash ../analysis.sh 2>&1 | tee analysis.log```  
